@@ -1,4 +1,4 @@
-package creational_patterns.factory;
+package creational_patterns.factory_and_abstrat_factory.factory;
 
 public class BankA implements IBank {
 
