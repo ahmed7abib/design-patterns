@@ -1,6 +1,6 @@
 package creational_patterns.prototype;
 
-public class RegularEmployee implements ProtoType, Cloneable {
+public class RegularEmployee implements ProtoType<RegularEmployee>, Cloneable {
 
     private int id;
     private String name;
@@ -37,7 +37,7 @@ public class RegularEmployee implements ProtoType, Cloneable {
     @Override
     public RegularEmployee copyInstance() {
         try {
-            return (RegularEmployee) this.clone();
+            return (RegularEmployee) super.clone();
         } catch (Exception e) {
             return null;
         }
