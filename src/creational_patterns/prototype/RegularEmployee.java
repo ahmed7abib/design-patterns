@@ -35,11 +35,7 @@ public class RegularEmployee implements ProtoType<RegularEmployee>, Cloneable {
     }
 
     @Override
-    public RegularEmployee copyInstance() {
-        try {
-            return (RegularEmployee) super.clone();
-        } catch (Exception e) {
-            return null;
-        }
+    public RegularEmployee copyInstance() throws Exception {
+        return (RegularEmployee) super.clone();
     }
 }

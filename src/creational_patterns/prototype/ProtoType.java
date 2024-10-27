@@ -1,5 +1,5 @@
 package creational_patterns.prototype;
 
 public interface ProtoType<T> {
-    T copyInstance();
+    T copyInstance() throws Exception;
 }
