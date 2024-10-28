@@ -1,4 +1,4 @@
-package creational_patterns.builder;
+package creation_patterns.builder;
 
 public class Car {
 

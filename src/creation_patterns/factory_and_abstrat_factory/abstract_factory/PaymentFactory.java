@@ -1,9 +1,9 @@
-package creational_patterns.factory_and_abstrat_factory.abstract_factory;
+package creation_patterns.factory_and_abstrat_factory.abstract_factory;
 
-import creational_patterns.factory_and_abstrat_factory.factory.BankA;
-import creational_patterns.factory_and_abstrat_factory.factory.BankB;
-import creational_patterns.factory_and_abstrat_factory.factory.BankC;
-import creational_patterns.factory_and_abstrat_factory.factory.IBank;
+import creation_patterns.factory_and_abstrat_factory.factory.BankA;
+import creation_patterns.factory_and_abstrat_factory.factory.BankB;
+import creation_patterns.factory_and_abstrat_factory.factory.BankC;
+import creation_patterns.factory_and_abstrat_factory.factory.IBank;
 
 public class PaymentFactory implements IPaymentFactory {
 

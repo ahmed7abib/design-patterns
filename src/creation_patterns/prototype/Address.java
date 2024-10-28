@@ -1,4 +1,4 @@
-package creational_patterns.prototype;
+package creation_patterns.prototype;
 
 public class Address {
 
