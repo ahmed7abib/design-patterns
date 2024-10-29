@@ -6,6 +6,9 @@ import structural_patterns.decorator.sandwitch.BasicSandwich;
 import structural_patterns.decorator.sandwitch.Beef;
 import structural_patterns.decorator.sandwitch.Sandwich;
 import structural_patterns.facade.MoviePlayerFacade;
+import structural_patterns.flyWeight.DiscountFactory;
+import structural_patterns.flyWeight.DiscountType;
+import structural_patterns.flyWeight.IDiscount;
 import structural_patterns.proxy.internet_proxy.Employee;
 import structural_patterns.proxy.internet_proxy.InternetProxy;
 import structural_patterns.proxy.sms_proxy.ISMSService;
@@ -27,6 +30,9 @@ public class StructuralPatterns {
 
         System.out.println("\n----------- Facade PATTERN --------------\n");
         StructuralPatterns.facadeDemo();
+
+        System.out.println("\n----------- FlyWeight PATTERN --------------\n");
+        StructuralPatterns.flyWeightDemo();
     }
 
     private static void proxyDemo() {
@@ -110,5 +116,19 @@ public class StructuralPatterns {
     private static void facadeDemo() {
         MoviePlayerFacade moviePlayerFacade = new MoviePlayerFacade();
         moviePlayerFacade.playMovie("العيال كبرت");
+    }
+
+    private static void flyWeightDemo() {
+        try {
+            IDiscount dayDiscount = new DiscountFactory().getDiscountInstance(DiscountType.DAY);
+            double disCountValue = dayDiscount.calcDiscount(String.valueOf(System.currentTimeMillis()), null);
+            System.out.println("Day Discount = " + disCountValue);
+
+            IDiscount itemDiscount = new DiscountFactory().getDiscountInstance(DiscountType.ITEM);
+            double itemDiscountValue = itemDiscount.calcDiscount(String.valueOf(System.currentTimeMillis()), null);
+            System.out.println("Item Discount = " + itemDiscountValue);
+        } catch (ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
