@@ -1,6 +1,6 @@
 package structural_patterns.decorator.emailSender;
 
-import structural_patterns.proxy.ISMSService;
+import structural_patterns.proxy.sms_proxy.ISMSService;
 
 public class ServicesDecorator implements ISMSService {
 

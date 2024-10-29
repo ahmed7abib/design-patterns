@@ -5,26 +5,32 @@ import structural_patterns.decorator.emailSender.EmailService;
 import structural_patterns.decorator.sandwitch.BasicSandwich;
 import structural_patterns.decorator.sandwitch.Beef;
 import structural_patterns.decorator.sandwitch.Sandwich;
-import structural_patterns.proxy.ISMSService;
-import structural_patterns.proxy.SMSService;
-import structural_patterns.proxy.SMSServiceProxy;
+import structural_patterns.facade.MoviePlayerFacade;
+import structural_patterns.proxy.internet_proxy.Employee;
+import structural_patterns.proxy.internet_proxy.InternetProxy;
+import structural_patterns.proxy.sms_proxy.ISMSService;
+import structural_patterns.proxy.sms_proxy.SMSService;
+import structural_patterns.proxy.sms_proxy.SMSServiceProxy;
 
 public class StructuralPatterns {
 
-    public static void StructuralPatternsDemo() {
+    public static void structuralPatternsDemo() {
 
-        System.out.println("----------- PROXY PATTERN --------------\n");
+        System.out.println("\n----------- PROXY PATTERN --------------\n");
         StructuralPatterns.proxyDemo();
 
-        System.out.println("----------- Decorator PATTERN --------------\n");
+        System.out.println("\n----------- Decorator PATTERN --------------\n");
         StructuralPatterns.decoratorDemo();
 
-        System.out.println("----------- Adapter PATTERN --------------\n");
+        System.out.println("\n----------- Adapter PATTERN --------------\n");
         StructuralPatterns.adapterDemo();
+
+        System.out.println("\n----------- Facade PATTERN --------------\n");
+        StructuralPatterns.facadeDemo();
     }
 
     private static void proxyDemo() {
-        SMSServiceProxy smsServiceProxy = new SMSServiceProxy(new SMSService());
+        SMSServiceProxy smsServiceProxy = new SMSServiceProxy();
 
         String msg1 = smsServiceProxy.sendSMS("123456", "111222000", "Hello");
         String msg2 = smsServiceProxy.sendSMS("123456", "111222233", "Hello");
@@ -41,21 +47,30 @@ public class StructuralPatterns {
         System.out.println(msg5);
         System.out.println(msg6);
         System.out.println(msg7);
-        System.out.println("\n");
+
+        System.out.println("\n----------- Proxy Example 2 ----------------\n");
+
+        InternetProxy internetProxy = new InternetProxy();
+        internetProxy.getInternetAccess(
+                new Employee.EmployeeBuilder()
+                        .setName("Ahmed")
+                        .setSecurityLevel(2)
+                        .build()
+        );
     }
 
     private static void decoratorDemo() {
-        System.out.println("Decorator Example 1 \n");
+        System.out.println("\n Decorator Example 1 \n");
 
         ISMSService smsService = new SMSService();
         String sms = smsService.sendSMS("123", "456", "Hello");
-        System.out.println(sms + "\n");
+        System.out.println(sms);
 
         ISMSService emailService = new EmailService(new SMSService());
         String result = emailService.sendSMS("123", "456", "Hello");
-        System.out.println(result + "\n");
+        System.out.println(result);
 
-        System.out.println("Decorator Example 2 \n");
+        System.out.println("\n Decorator Example 2 \n");
 
         Sandwich sandwich = new BasicSandwich();
         System.out.println("Basic sandwich details: " + sandwich.getDesc() + ", " + sandwich.getCost() + "\n");
@@ -76,8 +91,6 @@ public class StructuralPatterns {
             System.out.println(comp2.next());
         }
 
-        System.out.println("\n");
-
         // Old interface is deprecated and I want to work with NewInterface,
         // Based on Open-Closed Principle I want to add new feature without modify the current code,
         // I will use adapter pattern that will convert old interface to new interface.
@@ -92,5 +105,10 @@ public class StructuralPatterns {
         if (newComp2.hasNext()) {
             System.out.println(newComp2.nextElement());
         }
+    }
+
+    private static void facadeDemo() {
+        MoviePlayerFacade moviePlayerFacade = new MoviePlayerFacade();
+        moviePlayerFacade.playMovie("العيال كبرت");
     }
 }
