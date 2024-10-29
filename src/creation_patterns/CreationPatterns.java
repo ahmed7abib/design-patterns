@@ -1,10 +1,10 @@
 package creation_patterns;
 
 import creation_patterns.builder.Car;
-import creation_patterns.factory_and_abstrat_factory.abstract_factory.ICard;
-import creation_patterns.factory_and_abstrat_factory.abstract_factory.PaymentFactory;
-import creation_patterns.factory_and_abstrat_factory.factory.BankFactory;
-import creation_patterns.factory_and_abstrat_factory.factory.IBank;
+import creation_patterns.abstract_factory.ICard;
+import creation_patterns.abstract_factory.PaymentFactory;
+import creation_patterns.factory.BankFactory;
+import creation_patterns.factory.IBank;
 import creation_patterns.prototype.Address;
 import creation_patterns.prototype.RegularEmployee;
 import creation_patterns.singletone.Task1;

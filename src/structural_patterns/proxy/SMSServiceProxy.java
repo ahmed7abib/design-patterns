@@ -4,17 +4,17 @@ import java.util.HashMap;
 
 public class SMSServiceProxy {
 
-    private final SMSService service;
+    private final ISMSService smsService;
     private final HashMap<String, Integer> sentCount = new HashMap<>();
 
-    public SMSServiceProxy(SMSService service) {
-        this.service = service;
+    public SMSServiceProxy(ISMSService smsService) {
+        this.smsService = smsService;
     }
 
     public String sendSMS(String senderMobileNumber, String receiverMobileNumber, String message) {
         if (!sentCount.containsKey(senderMobileNumber)) {
             sentCount.put(senderMobileNumber, 1);
-            return service.sendSMS(senderMobileNumber, receiverMobileNumber, message);
+            return smsService.sendSMS(senderMobileNumber, receiverMobileNumber, message);
         } else {
             int count = sentCount.get(senderMobileNumber);
 
@@ -23,7 +23,7 @@ public class SMSServiceProxy {
             } else {
                 count++;
                 sentCount.replace(senderMobileNumber, count);
-                return service.sendSMS(senderMobileNumber, receiverMobileNumber, message);
+                return smsService.sendSMS(senderMobileNumber, receiverMobileNumber, message);
             }
         }
     }

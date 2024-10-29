@@ -1,4 +1,4 @@
-package creation_patterns.factory_and_abstrat_factory.abstract_factory;
+package creation_patterns.abstract_factory;
 
 public interface ICard {
     String getCardType();
