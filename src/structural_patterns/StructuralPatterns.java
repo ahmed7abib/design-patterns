@@ -1,6 +1,20 @@
 package structural_patterns;
 
 import structural_patterns.adapter.*;
+import structural_patterns.bridge.operating_systems.using_bridge.Android;
+import structural_patterns.bridge.operating_systems.using_bridge.Laptop;
+import structural_patterns.bridge.operating_systems.using_bridge.SmartPhone;
+import structural_patterns.bridge.operating_systems.using_bridge.Windows;
+import structural_patterns.bridge.shapes.using_bridge.Circle;
+import structural_patterns.bridge.shapes.using_bridge.Rectangle;
+import structural_patterns.bridge.shapes.using_bridge.Red;
+import structural_patterns.composite.employees.Head;
+import structural_patterns.composite.employees.Manager;
+import structural_patterns.composite.employees.RegularEmployee;
+import structural_patterns.composite.views.Container;
+import structural_patterns.composite.views.EditText;
+import structural_patterns.composite.views.ImageView;
+import structural_patterns.composite.views.TextView;
 import structural_patterns.decorator.emailSender.EmailService;
 import structural_patterns.decorator.sandwitch.BasicSandwich;
 import structural_patterns.decorator.sandwitch.Beef;
@@ -33,6 +47,12 @@ public class StructuralPatterns {
 
         System.out.println("\n----------- FlyWeight PATTERN --------------\n");
         StructuralPatterns.flyWeightDemo();
+
+        System.out.println("\n----------- Composite PATTERN --------------\n");
+        StructuralPatterns.compositeDemo();
+
+        System.out.println("\n----------- Bridge PATTERN --------------\n");
+        StructuralPatterns.bridgeDemo();
     }
 
     private static void proxyDemo() {
@@ -130,5 +150,57 @@ public class StructuralPatterns {
         } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static void compositeDemo() {
+        RegularEmployee saif = new RegularEmployee("Saif", "Regular Emp");
+        RegularEmployee ahmed = new RegularEmployee("Ahmed", "Regular Emp");
+
+        Head amr = new Head("Amr", "Head");
+        Head essam = new Head("Essam", "Head");
+
+        Manager manager = new Manager("Mohamed", "Manager");
+
+        amr.addEmployee(saif);
+        essam.addEmployee(saif);
+        essam.addEmployee(ahmed);
+
+        manager.addHead(essam);
+        manager.addHead(amr);
+
+        manager.showDetails();
+
+        System.out.println("\nExample 2 \n");
+
+        TextView textView = new TextView();
+        ImageView imageView = new ImageView();
+        EditText editText = new EditText();
+
+        Container container = new Container();
+
+        container.addComponent(textView);
+        container.addComponent(imageView);
+        container.addComponent(editText);
+
+        container.showComponents();
+    }
+
+    private static void bridgeDemo() {
+        SmartPhone smartPhoneAndroid = new SmartPhone(new Android());
+        smartPhoneAndroid.start();
+        smartPhoneAndroid.shutDown();
+
+        Laptop laptop = new Laptop(new Windows());
+        laptop.start();
+        laptop.shutDown();
+
+        System.out.println("\nExample 2 \n");
+
+        Circle circle = new Circle(new Red());
+        circle.draw();
+
+        Rectangle rectangle = new Rectangle(new Red());
+        rectangle.draw();
+
     }
 }
