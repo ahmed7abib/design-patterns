@@ -8,7 +8,6 @@ public abstract class Device {
         this.operatingSystem = operatingSystem;
     }
 
-
     public abstract void start();
 
     public abstract void shutDown();
