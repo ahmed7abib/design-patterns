@@ -4,6 +4,8 @@ import behaviourals_patterns.chain_of_responsbility.form.SuperHeadEvaluation;
 import behaviourals_patterns.chain_of_responsbility.hr_evalution.HREvaluationHandler;
 import behaviourals_patterns.chain_of_responsbility.hr_evalution.JobApplication;
 import behaviourals_patterns.chain_of_responsbility.hr_evalution.TechnicalEvaluationHandler;
+import behaviourals_patterns.observer.Course;
+import behaviourals_patterns.observer.Student;
 
 public class BehaviouralPatterns {
 
@@ -11,6 +13,9 @@ public class BehaviouralPatterns {
 
         System.out.println("----------------- Chain Of Responsibility -------------------");
         coRDemo();
+
+        System.out.println("----------------- Observer Pattern -------------------");
+        observerDemo();
     }
 
     private static void coRDemo() {
@@ -41,5 +46,21 @@ public class BehaviouralPatterns {
         managerEvaluation.handleRequest(formRequest);
 
         System.out.println(formRequest);
+    }
+
+    private static void observerDemo() {
+
+        Student ahmed = new Student("Ahmed");
+        Student mohamed = new Student("Mohamed");
+
+        Course php = new Course("PHP");
+        Course java = new Course("JAVA");
+
+        php.subscribe(ahmed);
+        php.subscribe(mohamed);
+        java.subscribe(mohamed);
+
+        php.setAvailability(true);
+        java.setAvailability(false);
     }
 }
