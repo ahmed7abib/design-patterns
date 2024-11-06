@@ -6,16 +6,27 @@ import behaviourals_patterns.chain_of_responsbility.hr_evalution.JobApplication;
 import behaviourals_patterns.chain_of_responsbility.hr_evalution.TechnicalEvaluationHandler;
 import behaviourals_patterns.observer.Course;
 import behaviourals_patterns.observer.Student;
+import behaviourals_patterns.state.vedio_player.VideoPlayer;
+import behaviourals_patterns.strategy.Chevrolet;
+import behaviourals_patterns.strategy.Mechanic;
+import behaviourals_patterns.strategy.StrategyAlgo;
+import behaviourals_patterns.strategy.Toyota;
 
 public class BehaviouralPatterns {
 
     public static void main(String[] args) {
 
-        System.out.println("----------------- Chain Of Responsibility -------------------");
+        System.out.println("\n----------------- Chain Of Responsibility -------------\n");
         coRDemo();
 
-        System.out.println("----------------- Observer Pattern -------------------");
+        System.out.println("\n----------------- Observer Pattern -------------------\n");
         observerDemo();
+
+        System.out.println("\n----------------- Strategy Pattern -------------------\n");
+        strategyDemo();
+
+        System.out.println("\n----------------- State Pattern -------------------\n");
+        stateDemo();
     }
 
     private static void coRDemo() {
@@ -62,5 +73,31 @@ public class BehaviouralPatterns {
 
         php.setAvailability(true);
         java.setAvailability(false);
+    }
+
+    private static void strategyDemo() {
+
+        StrategyAlgo toyota = new Toyota();
+        StrategyAlgo chev = new Chevrolet();
+
+        Mechanic mechanic = new Mechanic();
+
+        mechanic.setStrategyAlgo(toyota);
+        mechanic.disassembleCar();
+
+        mechanic.setStrategyAlgo(chev);
+        mechanic.disassembleCar();
+    }
+
+    private static void stateDemo() {
+        VideoPlayer videoPlayer = new VideoPlayer();
+
+        videoPlayer.processVideo();
+        videoPlayer.processVideo();
+        videoPlayer.processVideo();
+
+        videoPlayer.processVideo();
+        videoPlayer.processVideo();
+        videoPlayer.processVideo();
     }
 }
