@@ -14,38 +14,9 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
-/**
- * SingleTone
- * Creation Patterns.
- * Prototype
- * Builder
- * Factory
- * Abstract Factory
- */
-
 public class CreationPatterns {
 
-    public static void creationPatternsDemo() throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("\n**********  SingleTone Pattern ******** \n");
-        CreationPatterns.singleToneDemo();
-
-        System.out.println("\n**********  Prototype Pattern ******** \n");
-        CreationPatterns.prototypeDemo();
-
-        System.out.println("\n**********  Builder Pattern ********** \n");
-        CreationPatterns.builderPatternDemo();
-
-        System.out.println("\n**********  Factory Pattern ********** \n");
-        CreationPatterns.factoryPatternDemo(scanner);
-
-        System.out.println("\n**********  Abstract Factory Pattern ********** \n");
-        CreationPatterns.abstractFactoryPatternDemo(scanner);
-    }
-
-    private static void singleToneDemo() throws InterruptedException {
+    public static void singleToneDemo() throws InterruptedException {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         Task1 task1 = new Task1();
@@ -58,7 +29,7 @@ public class CreationPatterns {
         executor.shutdown();
     }
 
-    private static void prototypeDemo() {
+    public static void prototypeDemo() {
         RegularEmployee regularEmployee = new RegularEmployee();
         regularEmployee.setId(1);
         regularEmployee.setName("Ahmed");
@@ -76,7 +47,7 @@ public class CreationPatterns {
         }
     }
 
-    private static void builderPatternDemo() {
+    public static void builderPatternDemo() {
         Car car = new Car.CarBuilder("V1", "Manual")
                 .setColor("Green")
                 .setHasSunRoof(false)
@@ -87,7 +58,7 @@ public class CreationPatterns {
         System.out.println(car);
     }
 
-    private static void factoryPatternDemo(Scanner scanner) {
+    public static void factoryPatternDemo(Scanner scanner) {
 
         System.out.println("Enter your credit number: ");
         String input = scanner.nextLine();
@@ -100,7 +71,7 @@ public class CreationPatterns {
         }
     }
 
-    private static void abstractFactoryPatternDemo(Scanner scanner) {
+    public static void abstractFactoryPatternDemo(Scanner scanner) {
         System.out.println("Enter your credit number: ");
         String input = scanner.nextLine();
 

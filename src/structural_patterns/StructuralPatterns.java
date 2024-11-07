@@ -31,31 +31,7 @@ import structural_patterns.proxy.sms_proxy.SMSServiceProxy;
 
 public class StructuralPatterns {
 
-    public static void structuralPatternsDemo() {
-
-        System.out.println("\n----------- PROXY PATTERN --------------\n");
-        StructuralPatterns.proxyDemo();
-
-        System.out.println("\n----------- Decorator PATTERN --------------\n");
-        StructuralPatterns.decoratorDemo();
-
-        System.out.println("\n----------- Adapter PATTERN --------------\n");
-        StructuralPatterns.adapterDemo();
-
-        System.out.println("\n----------- Facade PATTERN --------------\n");
-        StructuralPatterns.facadeDemo();
-
-        System.out.println("\n----------- FlyWeight PATTERN --------------\n");
-        StructuralPatterns.flyWeightDemo();
-
-        System.out.println("\n----------- Composite PATTERN --------------\n");
-        StructuralPatterns.compositeDemo();
-
-        System.out.println("\n----------- Bridge PATTERN --------------\n");
-        StructuralPatterns.bridgeDemo();
-    }
-
-    private static void proxyDemo() {
+    public static void proxyDemo() {
         SMSServiceProxy smsServiceProxy = new SMSServiceProxy();
 
         String msg1 = smsServiceProxy.sendSMS("123456", "111222000", "Hello");
@@ -85,7 +61,7 @@ public class StructuralPatterns {
         );
     }
 
-    private static void decoratorDemo() {
+    public static void decoratorDemo() {
         System.out.println("\n Decorator Example 1 \n");
 
         ISMSService smsService = new SMSService();
@@ -105,7 +81,7 @@ public class StructuralPatterns {
         System.out.println("Beef sandwich details: " + beefSandwich.getDesc() + ", " + beefSandwich.getCost());
     }
 
-    private static void adapterDemo() {
+    public static void adapterDemo() {
         OldInterface comp1 = new ComponentA();
         OldInterface comp2 = new ComponentB();
 
@@ -133,12 +109,12 @@ public class StructuralPatterns {
         }
     }
 
-    private static void facadeDemo() {
+    public static void facadeDemo() {
         MoviePlayerFacade moviePlayerFacade = new MoviePlayerFacade();
         moviePlayerFacade.playMovie("العيال كبرت");
     }
 
-    private static void flyWeightDemo() {
+    public static void flyWeightDemo() {
         try {
             IDiscount dayDiscount = new DiscountFactory().getDiscountInstance(DiscountType.DAY);
             double disCountValue = dayDiscount.calcDiscount(String.valueOf(System.currentTimeMillis()), null);
@@ -152,7 +128,7 @@ public class StructuralPatterns {
         }
     }
 
-    private static void compositeDemo() {
+    public static void compositeDemo() {
         RegularEmployee saif = new RegularEmployee("Saif", "Regular Emp");
         RegularEmployee ahmed = new RegularEmployee("Ahmed", "Regular Emp");
 
@@ -185,7 +161,7 @@ public class StructuralPatterns {
         container.showComponents();
     }
 
-    private static void bridgeDemo() {
+    public static void bridgeDemo() {
         SmartPhone smartPhoneAndroid = new SmartPhone(new Android());
         smartPhoneAndroid.start();
         smartPhoneAndroid.shutDown();
