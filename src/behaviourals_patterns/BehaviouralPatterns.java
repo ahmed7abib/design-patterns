@@ -1,3 +1,5 @@
+package behaviourals_patterns;
+
 import behaviourals_patterns.chain_of_responsbility.form.FormRequest;
 import behaviourals_patterns.chain_of_responsbility.form.ManagerEvaluation;
 import behaviourals_patterns.chain_of_responsbility.form.SuperHeadEvaluation;
@@ -14,22 +16,7 @@ import behaviourals_patterns.strategy.Toyota;
 
 public class BehaviouralPatterns {
 
-    public static void main(String[] args) {
-
-        System.out.println("\n----------------- Chain Of Responsibility -------------\n");
-        coRDemo();
-
-        System.out.println("\n----------------- Observer Pattern -------------------\n");
-        observerDemo();
-
-        System.out.println("\n----------------- Strategy Pattern -------------------\n");
-        strategyDemo();
-
-        System.out.println("\n----------------- State Pattern -------------------\n");
-        stateDemo();
-    }
-
-    private static void coRDemo() {
+    public static void coRDemo() {
         System.out.println("Example 1");
 
         JobApplication jobApplication = new JobApplication();
@@ -59,7 +46,7 @@ public class BehaviouralPatterns {
         System.out.println(formRequest);
     }
 
-    private static void observerDemo() {
+    public static void observerDemo() {
 
         Student ahmed = new Student("Ahmed");
         Student mohamed = new Student("Mohamed");
@@ -75,7 +62,7 @@ public class BehaviouralPatterns {
         java.setAvailability(false);
     }
 
-    private static void strategyDemo() {
+    public static void strategyDemo() {
 
         StrategyAlgo toyota = new Toyota();
         StrategyAlgo chev = new Chevrolet();
@@ -89,7 +76,7 @@ public class BehaviouralPatterns {
         mechanic.disassembleCar();
     }
 
-    private static void stateDemo() {
+    public static void stateDemo() {
         VideoPlayer videoPlayer = new VideoPlayer();
 
         videoPlayer.processVideo();
