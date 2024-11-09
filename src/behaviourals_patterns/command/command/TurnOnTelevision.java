@@ -14,4 +14,9 @@ public class TurnOnTelevision implements Command {
     public void execute() {
         receiver.turnOn();
     }
+
+    @Override
+    public void undo() {
+        receiver.turnOff();
+    }
 }

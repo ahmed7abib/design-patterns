@@ -4,7 +4,21 @@ import behaviourals_patterns.command.command.Command;
 
 public class RemoteControlInvoker {
 
-    public void execute(Command command) {
-        command.execute();
+    private Command lastCommand;
+
+    public void setLastCommand(Command lastCommand) {
+        this.lastCommand = lastCommand;
+    }
+
+    public void buttonPressed() {
+        if (lastCommand != null) {
+            lastCommand.execute();
+        }
+    }
+
+    public void undo() {
+        if (lastCommand != null) {
+            lastCommand.undo();
+        }
     }
 }
