@@ -6,6 +6,12 @@ import behaviourals_patterns.chain_of_responsbility.form.SuperHeadEvaluation;
 import behaviourals_patterns.chain_of_responsbility.hr_evalution.HREvaluationHandler;
 import behaviourals_patterns.chain_of_responsbility.hr_evalution.JobApplication;
 import behaviourals_patterns.chain_of_responsbility.hr_evalution.TechnicalEvaluationHandler;
+import behaviourals_patterns.command.command.Command;
+import behaviourals_patterns.command.RemoteControlInvoker;
+import behaviourals_patterns.command.receiver.IReceiver;
+import behaviourals_patterns.command.receiver.TVReceiver;
+import behaviourals_patterns.command.command.TurnOffTelevision;
+import behaviourals_patterns.command.command.TurnOnTelevision;
 import behaviourals_patterns.observer.Course;
 import behaviourals_patterns.observer.Student;
 import behaviourals_patterns.state.vedio_player.VideoPlayer;
@@ -86,5 +92,16 @@ public class BehaviouralPatterns {
         videoPlayer.processVideo();
         videoPlayer.processVideo();
         videoPlayer.processVideo();
+    }
+
+    public static void commandDemo() {
+        IReceiver tvReceiver = new TVReceiver();
+        RemoteControlInvoker remoteControl = new RemoteControlInvoker();
+
+        Command tvTurnOn = new TurnOnTelevision(tvReceiver);
+        Command tvTurnOff = new TurnOffTelevision(tvReceiver);
+
+        remoteControl.execute(tvTurnOn);
+        remoteControl.execute(tvTurnOff);
     }
 }

@@ -15,5 +15,8 @@ public class BPProgram {
 
         System.out.println("\n-------------- State Pattern -------------------\n");
         stateDemo();
+
+        System.out.println("\n-------------- Command Pattern -------------------\n");
+        commandDemo();
     }
 }
