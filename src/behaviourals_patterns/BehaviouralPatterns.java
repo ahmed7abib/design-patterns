@@ -101,10 +101,10 @@ public class BehaviouralPatterns {
         Command tvTurnOn = new TurnOnTelevision(tvReceiver);
         Command tvTurnOff = new TurnOffTelevision(tvReceiver);
 
-        remoteControl.setLastCommand(tvTurnOn);
+        remoteControl.setCommand(tvTurnOn);
         remoteControl.buttonPressed();
 
-        remoteControl.setLastCommand(tvTurnOff);
+        remoteControl.setCommand(tvTurnOff);
         remoteControl.buttonPressed();
     }
 }

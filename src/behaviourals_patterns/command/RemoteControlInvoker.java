@@ -6,7 +6,7 @@ public class RemoteControlInvoker {
 
     private Command lastCommand;
 
-    public void setLastCommand(Command lastCommand) {
+    public void setCommand(Command lastCommand) {
         this.lastCommand = lastCommand;
     }
 
