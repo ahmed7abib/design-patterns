@@ -6,14 +6,9 @@ public class RemoteControlInvoker {
 
     private Command lastCommand;
 
-    public void setCommand(Command lastCommand) {
-        this.lastCommand = lastCommand;
-    }
-
-    public void buttonPressed() {
-        if (lastCommand != null) {
-            lastCommand.execute();
-        }
+    public void buttonPressed(Command command) {
+        this.lastCommand = command;
+        command.execute();
     }
 
     public void undo() {
