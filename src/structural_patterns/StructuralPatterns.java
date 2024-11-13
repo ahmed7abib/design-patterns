@@ -68,7 +68,7 @@ public class StructuralPatterns {
         String sms = smsService.sendSMS("123", "456", "Hello");
         System.out.println(sms);
 
-        ISMSService emailService = new EmailService(new SMSService());
+        ISMSService emailService = new EmailService(smsService);
         String result = emailService.sendSMS("123", "456", "Hello");
         System.out.println(result);
 
@@ -77,7 +77,7 @@ public class StructuralPatterns {
         Sandwich sandwich = new BasicSandwich();
         System.out.println("Basic sandwich details: " + sandwich.getDesc() + ", " + sandwich.getCost() + "\n");
 
-        Sandwich beefSandwich = new Beef(new BasicSandwich());
+        Sandwich beefSandwich = new Beef(sandwich);
         System.out.println("Beef sandwich details: " + beefSandwich.getDesc() + ", " + beefSandwich.getCost());
     }
 
