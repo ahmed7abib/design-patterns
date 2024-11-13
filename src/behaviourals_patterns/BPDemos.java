@@ -19,8 +19,19 @@ import behaviourals_patterns.strategy.Chevrolet;
 import behaviourals_patterns.strategy.Mechanic;
 import behaviourals_patterns.strategy.StrategyAlgo;
 import behaviourals_patterns.strategy.Toyota;
+import behaviourals_patterns.visitor.Tax;
+import behaviourals_patterns.visitor.taxes.CustomsTax;
+import behaviourals_patterns.visitor.taxes.SalesTax;
+import behaviourals_patterns.visitor.taxes.ServiceAddedTax;
+import behaviourals_patterns.visitor.wares.Banana;
+import behaviourals_patterns.visitor.wares.Car;
+import behaviourals_patterns.visitor.wares.Chair;
+import behaviourals_patterns.visitor.wares.Ware;
 
-public class BehaviouralPatterns {
+import java.util.ArrayList;
+import java.util.List;
+
+public class BPDemos {
 
     public static void coRDemo() {
         System.out.println("Example 1");
@@ -105,5 +116,28 @@ public class BehaviouralPatterns {
         remoteControl.undo();
 
         remoteControl.buttonPressed(tvTurnOff);
+    }
+
+    public static void visitorDemo() {
+        Ware car = new Car(500_000);
+        Ware banana = new Banana(25);
+        Ware chair = new Chair(700);
+
+        List<Tax> taxList = new ArrayList<>();
+        taxList.add(new SalesTax());
+        taxList.add(new CustomsTax());
+        taxList.add(new ServiceAddedTax());
+
+        System.out.println("Car price without tax = " + car.getPrice());
+        car.addTaxList(taxList);
+        System.out.println("Car price with tax = " + car.getPrice());
+
+        System.out.println("Banana price without tax = " + banana.getPrice());
+        banana.addTaxList(taxList);
+        System.out.println("Banana price with tax = " + banana.getPrice());
+
+        System.out.println("Chair price without tax = " + chair.getPrice());
+        chair.addWareTax(new SalesTax());
+        System.out.println("Banana price with tax = " + chair.getPrice());
     }
 }

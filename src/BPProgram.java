@@ -1,4 +1,4 @@
-import static behaviourals_patterns.BehaviouralPatterns.*;
+import static behaviourals_patterns.BPDemos.*;
 
 public class BPProgram {
 
@@ -18,5 +18,8 @@ public class BPProgram {
 
         System.out.println("\n-------------- Command Pattern -------------------\n");
         commandDemo();
+
+        System.out.println("\n-------------- Command Pattern -------------------\n");
+        visitorDemo();
     }
 }
