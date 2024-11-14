@@ -19,7 +19,10 @@ public class BPProgram {
         System.out.println("\n-------------- Command Pattern -------------------\n");
         commandDemo();
 
-        System.out.println("\n-------------- Command Pattern -------------------\n");
+        System.out.println("\n-------------- Visitor Pattern -------------------\n");
         visitorDemo();
+
+        System.out.println("\n-------------- Mediator Pattern -------------------\n");
+        mediatorDemo();
     }
 }

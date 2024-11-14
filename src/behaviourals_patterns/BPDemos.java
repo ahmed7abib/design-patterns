@@ -12,6 +12,7 @@ import behaviourals_patterns.command.receiver.IReceiver;
 import behaviourals_patterns.command.receiver.TVReceiver;
 import behaviourals_patterns.command.command.TurnOffTelevision;
 import behaviourals_patterns.command.command.TurnOnTelevision;
+import behaviourals_patterns.mediator.*;
 import behaviourals_patterns.observer.Course;
 import behaviourals_patterns.observer.Student;
 import behaviourals_patterns.state.vedio_player.VideoPlayer;
@@ -139,5 +140,28 @@ public class BPDemos {
         System.out.println("Chair price without tax = " + chair.getPrice());
         chair.addWareTax(new SalesTax());
         System.out.println("Banana price with tax = " + chair.getPrice());
+    }
+
+    public static void mediatorDemo() {
+
+        AirPortTower airPortTower = new NozhaTower();
+
+        AirCraft airPlane1 = new AirPlaneOne(airPortTower);
+        AirCraft airPlane2 = new AirPlaneTwo(airPortTower);
+        AirCraft airPlane3 = new AirPlaneThree(airPortTower);
+
+        airPlane1.requestForLand();
+
+        System.out.println();
+
+        airPlane2.requestForLand();
+        airPortTower.landingCompleted();
+        airPlane2.requestForLand();
+
+        System.out.println();
+
+        airPlane3.requestForLand();
+        airPortTower.landingCompleted();
+        airPlane3.requestForLand();
     }
 }

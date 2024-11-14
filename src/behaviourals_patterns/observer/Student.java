@@ -9,7 +9,7 @@ public class Student implements CoursesObserver {
     }
 
     @Override
-    public void update(String message) {
+    public void notify(String message) {
         System.out.println("Notify " + name + " with message: " + message);
     }
 }

@@ -32,7 +32,7 @@ public class Course implements CoursesSubject {
     @Override
     public void sendNotifications() {
         for (CoursesObserver coursesObserver : coursesObserverList) {
-            coursesObserver.update(availability);
+            coursesObserver.notify(availability);
         }
     }
 }
